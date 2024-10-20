@@ -1,0 +1,22 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+/// <summary>
+/// 挂载在任何会造成伤害的物体上
+/// </summary>
+public class attack : MonoBehaviour
+{
+    [Header("数值")]
+    public int damage;
+    public float attackrange;
+    public float attackrate;
+
+    void OnTriggerStay2D(Collider2D other) 
+    {
+        
+        other.GetComponent<character>()?.Takedamge(this);
+
+        
+    }
+}
