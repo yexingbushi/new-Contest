@@ -3,7 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+<<<<<<< Updated upstream
 
+=======
+/// <summary>
+/// 挂载任何有数值的物体上
+/// </summary>
+>>>>>>> Stashed changes
 public class character : MonoBehaviour
 {/// <summary>
 /// 用于记录数值，玩家敌人都可以用，带部分事件广播与监听用于ui的更新
