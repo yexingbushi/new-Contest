@@ -1,23 +1,15 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Teleportable : MonoBehaviour
 {
-    [HideInInspector] public bool isCopy = false;
-    [HideInInspector] public bool hasCopy = false;
+    public bool isCopy;
 
-    // 在对边位置上复制该物体，保留速度
-    public void CreateCopy(Vector2 pos)
+    // 创建复制体的方法，返回新的 Teleportable 对象
+    public Teleportable CreateCopy(Vector2 position)
     {
-        if (!hasCopy)
-        {
-            hasCopy = true;
-
-            GameObject copy = Instantiate(gameObject, pos, Quaternion.identity);
-
-            copy.GetComponent<Teleportable>().isCopy = true;
-            copy.GetComponent<Teleportable>().hasCopy = false;
-            copy.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
-        }
+        // 实例化新的 Teleportable 对象
+        Teleportable copy = Instantiate(this, position, Quaternion.identity);
+        copy.isCopy = true; // 标记为复制体
+        return copy; // 返回新的复制体
     }
 }
